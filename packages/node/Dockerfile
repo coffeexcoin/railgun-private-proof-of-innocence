@@ -19,8 +19,8 @@ WORKDIR /app
 COPY package.json yarn.lock ./
 
 # Install all dependencies (including devDependencies for build)
-# Use legacy-peer-deps to handle peer dependency conflicts
-RUN yarn install --frozen-lockfile
+# Use --ignore-scripts to skip any postinstall hooks
+RUN yarn install --frozen-lockfile --ignore-scripts
 
 # Copy source files
 COPY tsconfig.json ./
@@ -30,7 +30,7 @@ COPY src ./src
 RUN yarn build
 
 # Prune dev dependencies for production
-RUN yarn install --frozen-lockfile --production && \
+RUN yarn install --frozen-lockfile --production --ignore-scripts && \
     yarn cache clean
 
 # -----------------------------------------------------------------------------

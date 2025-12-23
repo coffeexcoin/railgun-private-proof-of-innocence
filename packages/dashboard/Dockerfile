@@ -19,7 +19,8 @@ WORKDIR /app
 COPY package.json yarn.lock ./
 
 # Install all dependencies (including devDependencies for build)
-RUN yarn install --frozen-lockfile
+# Use --ignore-scripts to skip postinstall (which runs lint before src/ exists)
+RUN yarn install --frozen-lockfile --ignore-scripts
 
 # Copy source and config files
 COPY tsconfig.json tsconfig.paths.json tsconfig.test.json ./
