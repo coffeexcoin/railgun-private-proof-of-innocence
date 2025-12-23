@@ -1,0 +1,54 @@
+# Dependencies
+node_modules/
+
+# Build output (will be generated in container)
+build/
+
+# Git
+.git/
+.gitignore
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Environment files
+.env
+.env.*
+*.env
+
+# Test files
+**/__tests__/
+**/tests/
+*.test.ts
+*.test.tsx
+*.test.js
+*.spec.ts
+*.spec.tsx
+*.spec.js
+coverage/
+.nyc_output/
+
+# Documentation
+README.md
+*.md
+
+# PM2 configs (not used in Docker)
+pm2-*.config.js
+
+# Scripts not needed in production
+dash-update
+
+# Logs
+*.log
+logs/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# TypeScript build info
+*.tsbuildinfo
+
